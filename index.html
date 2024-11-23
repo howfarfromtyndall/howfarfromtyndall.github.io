@@ -235,8 +235,8 @@
 	.then(response => response.json())
 	.then(data => {
 		if (data.status === 'high_score') {
-			type = "leaderboard";
-			name = prompt("You have set the high score for Distance from Tyndall! Please enter whatever name you would like for the leaderboard");
+			var type = "leaderboard";
+			var name = prompt("You have set the high score for Distance from Tyndall! Please enter whatever name you would like for the leaderboard");
 			return fetch(url, {
         redirect: "follow",
         method: 'POST',
