@@ -223,7 +223,7 @@
 
 	function sendToSheet(distance) {
 	var type = "initial_send";
-	var url = 'https://script.google.com/macros/s/AKfycbwJHnHVFIfxbdaN3i_8bQMa3LJFzdl3QKfjge0uAKh-yrwBiaFK0qVB9KlgCzL3J35o3Q/exec';
+	var url = 'https://script.google.com/macros/s/AKfycbz4ZsAwvSBxYcA4ykCJzmMfDXlbCxdPT4Q1948ZAtb06aDj_8TZEYYYBmnkEPpoTYk2oQ/exec';
 	fetch(url, {
 		redirect: "follow",
 		method: 'POST',
@@ -248,7 +248,7 @@
       .then(response => response.json())
       .then(data => {
         if (data.status === 'success') {
-          alert("Name sent successfully!");
+          alert("High score added successfully! Well Done "+name);
         } else {
           alert("Error sending data: " + data.message);
         }
