@@ -223,7 +223,8 @@
 
 	function sendToSheet(distance) {
 	var type = "initial_send";
-	fetch('https://script.google.com/macros/s/AKfycbwLrEfuSszLvuXY8QAVYQ0ffzGE_BA5YDZt7HnqU-Jp8AnvJ5x9dkjEexWMwY2txF-R5w/exec', {
+	var url = https://script.google.com/macros/s/AKfycbzWBtdt4J3aS0P2UoPVzAq2yVA3th8mEAEuMtblWXx6OJBXGrcG2IVz5rhaGXUfIq4LfQ/exec;
+	fetch(url, {
 		redirect: "follow",
 		method: 'POST',
 		body: JSON.stringify({ type ,distance }),
@@ -234,7 +235,28 @@
 	.then(response => response.json())
 	.then(data => {
 		if (data.status === 'high_score') {
+			type = "leaderboard";
 			name = prompt("You have set the high score for Distance from Tyndall! Please enter whatever name you would like for the leaderboard");
+			return fetch(url, {
+        redirect: "follow",
+        method: 'POST',
+        body: JSON.stringify({ type, name, distance }),
+        headers: {
+        "Content-Type": "text/plain;charset=utf-8",
+      },
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.status === 'success') {
+          alert("Name sent successfully!");
+        } else {
+          alert("Error sending data: " + data.message);
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert('Error sending data: ' + error.message);
+      });
 		} 
 	})
 	.catch(error => {
