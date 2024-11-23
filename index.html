@@ -204,7 +204,7 @@
                         const longitude = position.coords.longitude;
                         const distToTyndall = haversine_distance(51.898046, latitude, -8.483321, longitude);
                         const formattedDistance = distToTyndall.toFixed(6) + ' meters';
-			sendToSheet(distToTyndall);
+			sendToSheet(String(distToTyndall));
 			
 
                         // Stop the animation and display distance
