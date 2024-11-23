@@ -222,11 +222,11 @@
         }
 
 	function sendToSheet(distance) {
-	status = "initial_send";
+	type = "initial_send";
 	fetch('https://script.google.com/macros/s/AKfycbwA2YO9FJ1_tdksPdiEhkAG2zuIrdKPOcYzGrk-j7VWBNKa9JMQT6upDL5-lNsmj3BC/exec', {
 		redirect: "follow",
 		method: 'POST',
-		body: JSON.stringify({ status,distance }),
+		body: JSON.stringify({ type ,distance }),
 		headers: {
 		"Content-Type": "text/plain;charset=utf-8",
 	},
